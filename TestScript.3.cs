@@ -158,8 +158,6 @@ public class Juggernaut : GlobalPlayer
 	{
 		Player player = Game.Player;
 		Ped playerPed = Game.Player.Character;
-		//var isMichael =	PED.IS_PED_MODEL(playerPed, GAMEPLAY.GET_HASH_KEY("player_zero"));
-		bool isMichael =	Function.Call(Hash.IS_PED_MODEL, playerPed, (GAMEPLAY.GET_HASH_KEY("player_zero")));
 		this.isWearingJuggernautSuit = true;
 		//	Going to prevent the Cover keybind instead.
 		//player.CanUseCover = false;
@@ -171,17 +169,6 @@ public class Juggernaut : GlobalPlayer
 		Function.Call(Hash.SET_PED_MOVEMENT_CLIPSET, playerPed, "ANIM_GROUP_MOVE_BALLISTIC", 1.0f);
 		Function.Call(Hash.SET_PED_STRAFE_CLIPSET, playerPed, "MOVE_STRAFE_BALLISTIC");
 		Function.Call(Hash.SET_WEAPON_ANIMATION_OVERRIDE, playerPed, 0x5534A626);
-		if (isMichael)
-		{
-			PED.SET_PED_COMPONENT_VARIATION(playerPed, 3, 5, 0, 0); -- Upper
-			PED.SET_PED_COMPONENT_VARIATION(playerPed, 4, 5, 0, 0); -- Lower
-			PED.SET_PED_COMPONENT_VARIATION(playerPed, 5, 1, 0, 0); -- Hands
-			PED.SET_PED_COMPONENT_VARIATION(playerPed, 6, 5, 0, 0); -- Shoes
-			PED.SET_PED_COMPONENT_VARIATION(playerPed, 8, 5, 0, 0); -- Accessory 0
-			PED.SET_PED_COMPONENT_VARIATION(playerPed, 9, 0, 0, 0); -- Accessory 1
-			PED.SET_PED_COMPONENT_VARIATION(playerPed, 10, 0, 0, 0); -- Badges / Juggernaut Mask
-			PED.SET_PED_PROP_INDEX(playerPed, 0, 26, 0, false); -- Hats
-		}
 	}
 	private void UnequipJuggernautSuit()
 	{
